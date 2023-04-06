@@ -20,14 +20,21 @@ const store = new Vuex.Store({
     },
   },
   mutations: {
-    increment(state, n) {
+    increment_M(state, n) {
       return (state.count += n);
     },
-    decrement(state, n) {
+    decrement_M(state, n) {
       return (state.count -= n);
     },
   },
-  actions: {},
+  actions: {
+    increment_A(context, n) {
+      context.commit("increment_M", n);
+    },
+    decrement_A(context, n) {
+      context.commit("decrement_M", n);
+    }
+  },
   modules: {},
 });
 

@@ -43,10 +43,10 @@ export default {
   },
   methods: {
     increment() {
-      return this.$store.commit("increment", 4);
+      return this.$store.dispatch("increment_M", 4);
     },
     decrement() {
-      return this.$store.commit("decrement", 5);
+      return this.$store.dispatch("decrement_M", 5);
     },
     incremental() {
       this.$store.state.count++;
