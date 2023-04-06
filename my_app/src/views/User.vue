@@ -5,6 +5,7 @@
         <p>Name: {{ name }}</p>
         <button v-on:click="incremental">+</button>
         <button v-on:click="decremental">-</button>
+        <p>Double Counter: {{ doublecount }}</p>
 
         
         <table>
@@ -29,11 +30,20 @@ import { mapState } from 'vuex'
 export default {
     name: 'User',
     components: {},
-    computed: mapState([
-        'count',
-        'name',
-        'student'
-    ]),
+    computed: {
+        count() {
+            return this.$store.state.count
+        },
+        name() {
+            return this.$store.state.name
+        },
+        student() {
+            return this.$store.state.student
+        },
+        doublecount() {
+            return this.$store.getters.doublecount(4)
+        },
+    },
     methods: {
         incremental() {
             this.$store.state.count++

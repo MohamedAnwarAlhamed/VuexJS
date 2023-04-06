@@ -15,8 +15,8 @@ const store = new Vuex.Store({
     ]
   },
   getters: {
-    doubleCount: state => {
-      return state.count * 2
+    doubleCount: (state) =>(num) => {
+      return state.count * 2 + num
     }
   },
   mutations: {
