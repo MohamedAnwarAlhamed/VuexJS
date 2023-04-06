@@ -25,20 +25,15 @@
 </template>
 
 <script lang="ts">
+import { mapState } from 'vuex'
 export default {
     name: 'User',
     components: {},
-    computed: {
-        count() {
-            return this.$store.state.count
-        },
-        name() {
-            return this.$store.state.name
-        },
-        student() {
-            return this.$store.state.student
-        }
-    },
+    computed: mapState([
+        'count',
+        'name',
+        'student'
+    ]),
     methods: {
         incremental() {
             this.$store.state.count++
