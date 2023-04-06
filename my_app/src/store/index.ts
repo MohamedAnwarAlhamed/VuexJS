@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
@@ -12,19 +12,23 @@ const store = new Vuex.Store({
       { id: 2, name: "Ahmed", age: 25 },
       { id: 3, name: "Ali", age: 20 },
       { id: 4, name: "Sara", age: 18 },
-    ]
+    ],
   },
   getters: {
-    doubleCount: (state) =>(num) => {
-      return state.count * 2 + num
-    }
+    doubleCount: (state) => (num) => {
+      return state.count * 2 + num;
+    },
   },
   mutations: {
+    increment(state, n) {
+      return (state.count += n);
+    },
+    decrement(state, n) {
+      return (state.count -= n);
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+  actions: {},
+  modules: {},
+});
 
-export default store 
+export default store;
