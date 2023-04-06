@@ -3,8 +3,16 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
+    count: 0,
+    name: "Mohamed Anwar",
+    student: [
+      { id: 1, name: "Mohamed Anwar", age: 30 },
+      { id: 2, name: "Ahmed", age: 25 },
+      { id: 3, name: "Ali", age: 20 },
+      { id: 4, name: "Sara", age: 18 },
+    ]
   },
   getters: {
   },
@@ -15,3 +23,5 @@ export default new Vuex.Store({
   modules: {
   }
 })
+
+export default store 
