@@ -3,6 +3,49 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
+const moduleA = {
+  state: {
+    count: 0,
+  },
+  mutations: {
+    increment_M(state, n) {
+      state.count++;
+    },
+  },
+  getters: {
+    doubleCount(state, n) {
+      return state.count * 2;
+    },
+  },
+  actions: {
+    increment_A(context, n) {
+      context.commit("increment_M");
+    },      
+  },
+};
+
+const moduleB = {
+  state: {
+    count: 0,
+  },
+  mutations: {
+    increment_M(state, n) {
+      state.count++;
+    },
+  },
+  getters: {
+    doubleCount(state, n) {
+      return state.count * 2;
+    },
+  },
+  actions: {
+    increment_A(context, n) {
+      context.commit("increment_M");
+    },
+  },
+};
+
+
 const store = new Vuex.Store({
   state: {
     count: 0,
@@ -35,7 +78,10 @@ const store = new Vuex.Store({
       context.commit("decrement_M", n);
     }
   },
-  modules: {},
+  modules: {
+    A: moduleA,
+    B: moduleB,
+  },
 });
 
 export default store;

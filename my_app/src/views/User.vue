@@ -28,31 +28,25 @@ export default {
   name: "User",
   components: {},
   computed: {
-    count() {
-      return this.$store.state.count;
-    },
-    name() {
-      return this.$store.state.name;
-    },
-    student() {
-      return this.$store.state.student;
+    countA() {
+      return this.$store.state.A.count;
     },
     doublecount() {
-      return this.$store.getters.doublecount(4);
+      return this.$store.getters.A.doublecount(4);
     },
   },
   methods: {
     increment() {
-      return this.$store.dispatch("increment_M", 4);
+      return this.$store.A.dispatch("increment_M", 4);
     },
     decrement() {
-      return this.$store.dispatch("decrement_M", 5);
+      return this.$store.A.dispatch("decrement_M", 5);
     },
     incremental() {
-      this.$store.state.count++;
+      this.$store.state.A.count++;
     },
     decremental() {
-      this.$store.state.count--;
+      this.$store.state.A.count--;
     },
   },
 };
